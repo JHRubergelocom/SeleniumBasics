@@ -20,8 +20,9 @@ public class SeleniumBasics {
 
     /**
      * @param args the command line arguments
+     * @throws java.lang.InterruptedException
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // TODO code application logic here
         // System.setProperty("webdriver.chrome.driver", "C:\\Users\\ruberg\\Documents\\Entwicklung\\Selenium\\chromedriver_win32\\chromedriver.exe");
         // WebDriver driver = new ChromeDriver();
@@ -45,10 +46,15 @@ public class SeleniumBasics {
         fst.eightComponents();
         fst.quit();
         */
+        
+        /*
         WebclientMeeting wme = new WebclientMeeting();
         WebDriver wdme = WebclientMeeting.StartSolution();
         WebclientMeeting.LoginSolution(wdme);
         WebclientMeeting.CreateMeetingBoard(wdme);
+        */
+
+        XpathFollowingSibling.Create();
     }
     
 }
