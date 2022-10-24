@@ -48,6 +48,7 @@ public class SeleniumBasics {
         WebclientMeeting wme = new WebclientMeeting();
         WebDriver wdme = WebclientMeeting.StartSolution();
         WebclientMeeting.LoginSolution(wdme);
+        WebclientMeeting.CreateMeetingBoard(wdme);
     }
     
 }
