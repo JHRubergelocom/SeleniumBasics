@@ -59,7 +59,10 @@ public class WebclientMeeting {
         
         frame.findElement(By.name("IX_GRP_MEETING_BOARD_NAME")).sendKeys("Meetingboard1");
         frame.findElement(By.name("IX_GRP_MEETING_BOARD_CODE")).sendKeys("MB1");
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(50000));
+        frame.findElement(By.name("IX_GRP_MEETING_BOARD_MINUTE_TAKER")).sendKeys("Adrian Smith");
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        frame.findElement(By.name("IX_DESC")).sendKeys("Test");        
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
         
         // click OK
         List<WebElement> listNextButtons =frame.findElements(By.name("NEXTNODE"));
