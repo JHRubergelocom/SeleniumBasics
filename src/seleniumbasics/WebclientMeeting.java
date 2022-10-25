@@ -6,8 +6,10 @@
 package seleniumbasics;
 
 import java.time.Duration;
+import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
@@ -29,15 +31,34 @@ public class WebclientMeeting {
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
     } 
     
-    static void CreateMeetingBoard(WebDriver driver) {
+    static void CreateMeetingBoard(WebDriver driver) throws InterruptedException {
         driver.findElement(By.xpath("//*[@id=\"tile-1013\"]")).click(); // Solutions
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
         driver.findElement(By.xpath("//*[@id=\"button-1218-btnIconEl\"]")).click(); // Neu
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
         driver.findElement(By.xpath("//*[@id=\"button-1280-btnIconEl\"]")).click(); // Meeting
         driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
-        driver.findElement(By.xpath("//*[@id=\"ext-comp-1274-iconEl\"]")).click(); // Neues Meeting Board
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        
+        WebElement elem = driver.findElement(By.xpath("//*[@id=\"ext-comp-1274-textEl\"]")); // Neues Meeting Board
+        Thread.sleep(3000);
+        elem.click();
+        Thread.sleep(3000);
+
+        // set elements
+        WebElement actelem = driver.switchTo().activeElement();
+        WebDriver frame = driver.switchTo().frame(actelem);
+        frame.findElement(By.name("IX_GRP_MEETING_BOARD_NAME")).sendKeys("Meetingboard1");
+        frame.findElement(By.name("IX_GRP_MEETING_BOARD_CODE")).sendKeys("MB1");
+        
+        // click OK
+        List<WebElement> listNextButtons =frame.findElements(By.name("NEXTNODE"));
+        for (WebElement buttonNext: listNextButtons) {
+            System.out.println(buttonNext.getText());
+            String buttonText = buttonNext.getText();
+            if (buttonText.contentEquals("OK")) {
+                buttonNext.click();
+            }
+        }
     }
     
 }
