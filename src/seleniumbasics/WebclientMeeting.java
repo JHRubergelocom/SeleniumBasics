@@ -8,6 +8,7 @@ package seleniumbasics;
 import java.time.Duration;
 import java.util.List;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -18,6 +19,7 @@ import org.openqa.selenium.support.ui.Select;
  * @author ruberg
  */
 public class WebclientMeeting {
+    static private final Integer interval = 5000;
     
     static WebDriver StartSolution() {
         ChromeDriver driver = new ChromeDriver();
@@ -29,40 +31,41 @@ public class WebclientMeeting {
         driver.findElement(By.xpath("//*[@id=\"field-focustext-1020-inputEl\"]")).sendKeys("Administrator");
         driver.findElement(By.xpath("//*[@id=\"textfield-1021-inputEl\"]")).sendKeys("elo");
         driver.findElement(By.xpath("//*[@id=\"button-1023-btnIconEl\"]")).click();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(interval));
     } 
     
     static void CreateMeetingBoard(WebDriver driver) throws InterruptedException {
         
         // start create meetingboard
         driver.findElement(By.xpath("//*[@id=\"tile-1013\"]")).click(); // Solutions
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));        
-        Thread.sleep(3000);        
+        // driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));        
+        Thread.sleep(interval);        
         
         
         driver.findElement(By.xpath("//*[@id=\"button-1218-btnIconEl\"]")).click(); // Neu
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(interval));
         driver.findElement(By.xpath("//*[@id=\"button-1280-btnIconEl\"]")).click(); // Meeting
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(interval));
         
         WebElement elem = driver.findElement(By.xpath("//*[@id=\"ext-comp-1274-textEl\"]")); // Neues Meeting Board
-        Thread.sleep(3000);
+        Thread.sleep(interval);
         elem.click();
-        Thread.sleep(3000);
+        Thread.sleep(interval);
 
         // set elements
         WebElement actelem = driver.switchTo().activeElement();
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(interval));
         
         WebDriver frame = driver.switchTo().frame(actelem); 
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(interval));
         
         frame.findElement(By.name("IX_GRP_MEETING_BOARD_NAME")).sendKeys("Meetingboard1");
         frame.findElement(By.name("IX_GRP_MEETING_BOARD_CODE")).sendKeys("MB1");
-        frame.findElement(By.name("IX_GRP_MEETING_BOARD_MINUTE_TAKER")).sendKeys("Adrian Smith");
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        frame.findElement(By.name("IX_GRP_MEETING_BOARD_MINUTE_TAKER")).sendKeys("Adrian Smith"+ Keys.TAB);
+        Thread.sleep(interval);
+       
         frame.findElement(By.name("IX_DESC")).sendKeys("Test");        
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(5000));
+        Thread.sleep(interval);
         
         // click OK
         List<WebElement> listNextButtons =frame.findElements(By.name("NEXTNODE"));
@@ -73,6 +76,6 @@ public class WebclientMeeting {
                 buttonNext.click();
             }
         }
-        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(50000));
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(interval));
     }    
 }
