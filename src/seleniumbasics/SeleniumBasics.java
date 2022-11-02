@@ -42,9 +42,10 @@ public class SeleniumBasics {
         fst.quit();
         */
         
-        WebDriver wdme = WebclientMeeting.StartSolution();
-        WebclientMeeting.LoginSolution(wdme);
-        WebclientMeeting.CreateMeetingBoard(wdme);
+        WebclientMeeting wcm = new WebclientMeeting();
+        wcm.SetSolution();
+        wcm.LoginSolution();
+        wcm.CreateMeetingBoard();
 
         // XpathFollowingSibling.Create();
     }
