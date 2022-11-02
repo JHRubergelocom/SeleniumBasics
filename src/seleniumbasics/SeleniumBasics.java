@@ -5,12 +5,7 @@
  */
 package seleniumbasics;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 /**
  *
@@ -47,7 +42,6 @@ public class SeleniumBasics {
         fst.quit();
         */
         
-        WebclientMeeting wme = new WebclientMeeting();
         WebDriver wdme = WebclientMeeting.StartSolution();
         WebclientMeeting.LoginSolution(wdme);
         WebclientMeeting.CreateMeetingBoard(wdme);
