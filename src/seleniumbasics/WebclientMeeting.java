@@ -84,7 +84,7 @@ public class WebclientMeeting {
         frame.findElement(By.name("IX_MAP_MEETING_BOARD_ORGANIZER1")).clear();
         frame.findElement(By.name("IX_MAP_MEETING_BOARD_ORGANIZER1")).sendKeys("Jan Eichner" + Keys.TAB);
         
-        frame.findElement(By.name("JS_ADDLINE")).click();
+        frame.findElement(By.xpath("//*[@addlineid='organizer']")).click();
         frame.findElement(By.name("IX_MAP_MEETING_BOARD_ORGANIZER2")).sendKeys("Sandra Renz" + Keys.TAB);
         
         frame.findElement(By.name("IX_DESC")).sendKeys("Beschreibung Meetingboard1");    
@@ -94,23 +94,21 @@ public class WebclientMeeting {
 
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_LASTNAME1")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_LASTNAME1")).sendKeys("Baum" + Keys.TAB);
-
+        
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_FIRSTNAME1")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_FIRSTNAME1")).sendKeys("Gerd" + Keys.TAB);
         
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_EMAIL1")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_EMAIL1")).sendKeys("g.baum@contelo.de" + Keys.TAB);
         
-        /*
-        frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME1")).clear();
-        frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME1")).sendKeys("Contelo AG" + Keys.TAB);
+        // frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME1")).clear();
+        // frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME1")).sendKeys("Contelo AG");
         
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_USERNAME1")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_USERNAME1")).sendKeys("Gerd Baum" + Keys.TAB);
-        */
         
-        /* JS_ADDLINE nicht eindeutig (evtl. über Xpath, parentElement bestimmen)       
-        frame.findElement(By.name("JS_ADDLINE")).click();
+        frame.findElement(By.xpath("//*[@addlineid='members']")).click();
+
         
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_LASTNAME2")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_LASTNAME2")).sendKeys("Renz" + Keys.TAB);
@@ -120,13 +118,12 @@ public class WebclientMeeting {
         
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_EMAIL2")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_EMAIL2")).sendKeys("s.renz@contelo.de" + Keys.TAB);
-        
-        frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME2")).clear();
-        frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME2")).sendKeys("Contelo AG" + Keys.TAB);
+
+        // frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME2")).clear();
+        // frame.findElement(By.name("WF_MAP_MEETING_PERSON_COMPANYNAME2")).sendKeys("Contelo AG" + Keys.TAB);
         
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_USERNAME2")).clear();
         frame.findElement(By.name("WF_MAP_MEETING_PERSON_USERNAME2")).sendKeys("Sandra Renz" + Keys.TAB);
-        */
        
         // Themen
         
